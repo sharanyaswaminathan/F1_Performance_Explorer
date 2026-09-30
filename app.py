@@ -1,9 +1,11 @@
+import os
 import fastf1
 import numpy as np
 import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt
 
+os.makedirs("cache", exist_ok=True)
 fastf1.Cache.enable_cache("cache")
 
 st.set_page_config(
