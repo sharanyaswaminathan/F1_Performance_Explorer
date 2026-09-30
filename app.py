@@ -26,8 +26,14 @@ session_type = st.sidebar.selectbox(
 session_code = "Q"
 
 with st.spinner("Loading real F1 session data..."):
-    session = fastf1.get_session(year, event, session_code)
-    session.load()
+   session = fastf1.get_session(year, event, session_code)
+
+session.load(
+    telemetry=False,
+    laps=True,
+    weather=False,
+    messages=False
+)
 
 drivers = sorted(session.laps["Driver"].dropna().unique())
 
